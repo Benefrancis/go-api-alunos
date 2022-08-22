@@ -2,8 +2,8 @@ package main
 
 import (
 	"database/sql"
-
 	"fmt"
+	"time"
 
 	"log"
 
@@ -32,7 +32,14 @@ func main() {
 
 	database = db
 
-	log.Println("Connected.")
+	// Connect and check the server version
+	var version string
+	database.QueryRow("SELECT VERSION()").Scan(&version)
+	fmt.Println("Connected to:", version)
+
+	now := time.Now()
+
+	fmt.Println("PT BR:", now.Format("02/01/2006"))
 
 	http.HandleFunc("/", showAluno)
 
