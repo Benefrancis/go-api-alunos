@@ -3,11 +3,9 @@ package main
 import (
 	"database/sql"
 	"fmt"
-	"time"
-
 	"log"
-
 	"net/http"
+	"time"
 
 	_ "github.com/go-sql-driver/mysql"
 )
